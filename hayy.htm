@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Happy BD Suhenah!</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffe4e8;
+  --bg2:#ffc6d0;
+  --card:#ffdce4;
+  --accent:#ff6b81;
+  --muted:rgba(255,255,255,0.85);
+  --glass: rgba(255,255,255,0.12);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#fff;
+}
+.container{max-width:1100px;margin:0 auto;padding:18px}
+.site-header{padding:28px 0;text-align:center}
+.site-header h1{font-size:42px;margin:0;text-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.site-header .sub{margin-top:8px;opacity:0.95;font-weight:600}
+.site-nav{display:flex;gap:12px;justify-content:center;margin-bottom:18px}
+.pill{background:var(--glass);padding:10px 18px;border-radius:26px;color:var(--muted);text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+.card{background:linear-gradient(180deg,var(--card),#ffc0ca);padding:22px;border-radius:14px;margin:18px 0;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+.section-title{font-size:20px;margin:0 0 8px}
+.muted{opacity:0.9}
+.countdown{margin:8px 0}
+.btn{background:#fff;color:var(--accent);padding:10px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;border:2px solid rgba(255,255,255,0.18);color:#fff}
+textarea{width:100%;border-radius:10px;padding:12px;border:none;font-size:15px}
+.send-row{text-align:right;margin-top:8px}
+.gallery{display:flex;gap:12px;flex-wrap:wrap}
+.gallery img{width:200px;height:200px;border-radius:10px;object-fit:cover}
+.footer{padding:30px;text-align:center}
+.site-footer .container{padding:20px 0;text-align:center}
+
+/* CAKE STYLES */
+.cake-area{display:flex;flex-direction:column;align-items:center;gap:6px}
+.plate{width:360px;height:80px;background:#ffeaf0;border-radius:50%;box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+.cake{position:relative;width:320px;height:180px;margin-top:-70px;border-radius:18px}
+.layer{position:absolute;left:50%;transform:translateX(-50%);width:86%;border-radius:12px}
+.layer-top{top:8px;height:44px;background:#fff0f3;z-index:4}
+.layer-mid{top:50px;height:48px;background:#ffd0dc;z-index:3}
+.layer-bottom{top:98px;height:56px;background:#ffb3c4;z-index:2}
+.candles{position:absolute;top:-28px;left:0;right:0;display:flex;justify-content:center;gap:22px}
+.candle{width:14px;height:60px;border-radius:6px;background:linear-gradient(180deg,#ff8fa3,#ff5e7e);position:relative;box-shadow:0 8px 18px rgba(0,0,0,0.18)}
+.candle:before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:-8px;width:18px;height:8px;border-radius:6px;background:#fff6ea}
+.flame{position:absolute;left:50%;transform:translateX(-50%);top:-30px;width:18px;height:26px;border-radius:50% 50% 40% 40%;background:radial-gradient(circle at 40% 30%, #fff6b0 0%, #ffd36a 40%, #ff7b2b 80%);filter:drop-shadow(0 6px 8px rgba(255,120,0,0.2));animation:flameF 160ms infinite}
+@keyframes flameF{0%{transform:translateX(-50%) scaleY(1) rotate(-2deg)}50%{transform:translateX(-50%) scaleY(1.12) rotate(2deg)}100%{transform:translateX(-50%) scaleY(1) rotate(-2deg)}}
+.smoke{position:absolute;left:50%;transform:translateX(-50%);top:-48px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#ddd,rgba(221,221,221,0.6));opacity:0}
+
+/* HAPPY TEXT */
+.happy-text{position:fixed;top:40%;left:50%;transform:translate(-50%,-50%) scale(0.6);font-size:42px;font-weight:700;color:#ff6b81;text-shadow:0 0 14px rgba(255,107,129,0.6);display:none;z-index:1000;transition:all 700ms ease}
+
+/* CONFETTI */
+.confetti{position:absolute;top:-10%;width:8px;height:11px;border-radius:50%;opacity:1;animation-name:confettiFall;animation-timing-function:linear;z-index:800}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(120vh) rotate(360deg);opacity:0}}
+
+/* RESPONSIVE */
+@media (max-width:720px){
+  .cake,.plate{width:90%;max-width:320px}
+  .gallery img{width:140px;height:140px}
+  .site-header h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>🎂 Happy BD Suhenah! 🎂</h1>
+    <p class="sub">Tanggal Ulang Tahun: <strong>23 Oktober</strong></p>
+  </div>
+</header>
+
+<nav class="site-nav container">
+  <a href="#cake" class="pill">🎂 Kue</a>
+  <a href="#message" class="pill">💌 Ucapan</a>
+  <a href="#song" class="pill">🎵 Lagu</a>
+  <a href="#gallery" class="pill">🖼️ Galeri</a>
+</nav>
+
+<main class="container">
+  <section class="countdown pill" aria-live="polite">
+    ⏱️ Menghitung mundur ke ulang tahunmu: <span id="timer">Loading...</span>
+  </section>
+
+  <section id="cake" class="card">
+    <h2 class="section-title">🎂 Kue Ulang Tahun</h2>
+    <div class="cake-area">
+      <div class="plate" aria-hidden="true"></div>
+      <div class="cake" role="img" aria-label="Kue ulang tahun">
+        <div class="layer layer-top"></div>
+        <div class="layer layer-mid"></div>
+        <div class="layer layer-bottom"></div>
+        <div class="candles" id="candles"></div>
+      </div>
+    </div>
+    <div class="cake-actions">
+      <button id="blowBtn" class="btn">Tiup Lilin</button>
+      <button id="relightBtn" class="btn ghost">Nyalakan Lagi</button>
+    </div>
+  </section>
+
+  <section id="message" class="card">
+    <h2 class="section-title">💌 Ucapan</h2>
+    <p class="muted">Tulis ucapan spesialmu untuk Suhenah</p>
+    <textarea id="wish" placeholder="Masukkan ucapanmu..." rows="6"></textarea>
+    <div class="send-row">
+      <button id="sendBtn" class="btn">Kirim Ucapan</button>
+    </div>
+    <h3 class="section-title" style="margin-top:16px;">📝 Riwayat Ucapan</h3>
+    <ul id="wishHistory"></ul>
+    <button id="clearHistoryBtn" class="btn ghost" style="margin-top:8px;">Hapus Semua Riwayat</button>
+  </section>
+
+  <section id="song" class="card">
+    <h2 class="section-title">🎵 Lagu Spesial</h2>
+    <p class="muted">Lagu akan diputar otomatis ketika lilin ditiup</p>
+    <audio id="birthdaySong" preload="auto">
+      <source src="Jamrud - Selamat Ulang Tahun (lyrics).mp3" type="audio/mpeg">
+    </audio>
+    <div class="song-controls" style="margin-top:10px;">
+      <button id="stopSongBtn" class="btn ghost">Stop Musik</button>
+    </div>
+  </section>
+
+  <section id="gallery" class="card">
+    <h2 class="section-title">🖼️ Galeri Kenangan</h2>
+    <div class="gallery">
+      <img src="1000215411.jpg" alt="Foto 1">
+      <img src="1000215412.jpg" alt="Foto 2">
+      <img src="1000215413.jpg" alt="Foto 3">
+    </div>
+  </section>
+</main>
+
+<div id="happyText" class="happy-text" aria-hidden="true">🎉 Happy Birthday Suhenah! 🎉</div>
+
+<footer class="site-footer">
+  <div class="container">💖 Dibuat dengan cinta untuk Suhenah</div>
+</footer>
+
+<script>
+const rnd=(a,b)=>a+Math.random()*(b-a);
+
+// Countdown
+function updateCountdown(){
+  const now=new Date();
+  let birthday=new Date(now.getFullYear(),9,23);
+  if(now>birthday) birthday=new Date(now.getFullYear()+1,9,23);
+  const diff=birthday-now;
+  const days=Math.floor(diff/(1000*60*60*24));
+  const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+  const seconds=Math.floor((diff%(1000*60))/1000);
+  const timeString=`${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+  const el=document.getElementById('timer');
+  if(el) el.textContent=timeString;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+// Candles
+const candlesEl=document.getElementById('candles');
+let candleCount=3;
+function makeCandle(i){
+  const wrapper=document.createElement('div');
+  wrapper.className='candle';
+  wrapper.dataset.index=i;
+  const flame=document.createElement('div');
+  flame.className='flame';
+  flame.dataset.lit='1';
+  const smoke=document.createElement('div');
+  smoke.className='smoke';
+  wrapper.appendChild(flame);
+  wrapper.appendChild(smoke);
+  wrapper.addEventListener('click',()=>{toggleCandle(wrapper)});
+  return wrapper;
+}
+function populateCandles(n){
+  candlesEl.innerHTML='';
+  for(let i=0;i<n;i++) candlesEl.appendChild(makeCandle(i));
+}
+populateCandles(candleCount);
+
+const blowBtn=document.getElementById('blowBtn');
+const relightBtn=document.getElementById('relightBtn');
+const song=document.getElementById('birthdaySong');
+const happyText=document.getElementById('happyText');
+
+function toggleCandle(candleWrapper){
+  const flame=candleWrapper.querySelector('.flame');
+  const smoke=candleWrapper.querySelector('.smoke');
+  if(!flame) return;
+  if(flame.dataset.lit==='1'){
+    flame.dataset.lit='0';
+    flame.style.animation='none';
+    flame.style.opacity=0;
+    smoke.style.opacity=1;
+    smoke.animate([{transform:'translateY(0) scale(0.6)',opacity:1},{transform:'translateY(-120px) scale(2)',opacity:0}],{duration:1200,easing:'cubic-bezier(.2,.9,.2,1)'});
+  } else {
+    flame.dataset.lit='1';
+    flame.style.animation='';
+    flame.style.opacity=1;
+  }
+}
+
+function blowAll(){
+  document.querySelectorAll('.candle').forEach(w=>{
+    const flame=w.querySelector('.flame');
+    const smoke=w.querySelector('.smoke');
+    if(flame && flame.dataset.lit==='1'){
+      flame.dataset.lit='0';
+      flame.style.animation='none';
+      flame.style.opacity=0;
+      smoke.style.opacity=1;
+      smoke.animate([{transform:'translateY(0) scale(0.6)',opacity:1},{transform:'translateY(-120px) scale(2)',opacity:0}],{duration:1200,easing:'cubic-bezier(.2,.9,.2,1)'});
+    }
+  });
+  launchConfetti();
+  if(song) song.play().catch(()=>{});
+  showHappyText();
+}
+
+function relightAll(){
+  document.querySelectorAll('.flame').forEach(f=>{f.dataset.lit='1';f.style.animation='';f.style.opacity=1});
+}
+
+blowBtn.addEventListener('click',blowAll);
+relightBtn.addEventListener('click',relightAll);
+
+// Stop music
+const stopBtn = document.getElementById('stopSongBtn');
+if(stopBtn){
+  stopBtn.addEventListener('click', ()=>{
+    if(song){
+      song.pause();
+      song.currentTime=0;
+    }
+  });
+}
+
+function launchConfetti(){
+  const count=60;
+  for(let i=0;i<count;i++){
+    const d=document.createElement('div');
+    d.className='confetti';
+    d.style.left=rnd(5,95)+'%';
+    d.style.background=`hsl(${rnd(0,360)},100%,65%)`;
+    const size=rnd(6,12);
+    d.style.width=size+'px';
+    d.style.height=(size*1.4)+'px';
+    const dur=rnd(1200,2600);
+    d.style.animationDuration=(dur/1000)+'s';
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),dur+200);
+  }
+}
+
+function showHappyText(){
+  if(!happyText) return;
+  happyText.style.display='block';
+  happyText.style.opacity=0;
+  happyText.style.transform='translate(-50%,-50%) scale(0.6)';
+  setTimeout(()=>{ happyText.style.transition='all 700ms ease'; happyText.style.opacity=1; happyText.style.transform='translate(-50%,-50%) scale(1)'; },40);
+  setTimeout(()=>{ happyText.style.transition='all 700ms ease'; happyText.style.opacity=0; },5000);
+}
+
+// Ucapan + Riwayat
+const wishInput=document.getElementById('wish');
+const sendBtn=document.getElementById('sendBtn');
+const wishHistoryEl=document.getElementById('wishHistory');
+const clearBtn=document.getElementById('clearHistoryBtn');
+
+function loadHistory(){
+  const history=JSON.parse(localStorage.getItem('wishHistory')||'[]');
+  wishHistoryEl.innerHTML='';
+  history.forEach(w=>{
+    const li=document.createElement('li');
+    li.textContent=w;
+    wishHistoryEl.appendChild(li);
+  });
+}
+loadHistory();
+
+sendBtn.addEventListener('click',()=>{
+  const val=wishInput.value.trim();
+  if(!val) return alert('Masukkan ucapan dulu!');
+  let history=JSON.parse(localStorage.getItem('wishHistory')||'[]');
+  history.push(val);
+  localStorage.setItem('wishHistory',JSON.stringify(history));
+  wishInput.value='';
+  loadHistory();
+});
+
+clearBtn.addEventListener('click',()=>{
+  if(confirm('Yakin ingin menghapus semua riwayat ucapan?')){
+    localStorage.removeItem('wishHistory');
+    loadHistory();
+    alert('Semua riwayat telah dihapus!');
+  }
+});
+
+// Space = tiup lilin
+window.addEventListener('keydown',e=>{if(e.code==='Space') blowAll();});
+
+// Mic detection untuk tiup lilin
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+  navigator.mediaDevices.getUserMedia({audio:true})
+    .then(stream=>{
+      const ac=new (window.AudioContext||window.webkitAudioContext)();
+      const src=ac.createMediaStreamSource(stream);
+      const analyser=ac.createAnalyser();
+      analyser.fftSize=2048;
+      src.connect(analyser);
+      const data=new Uint8Array(analyser.frequencyBinCount);
+      let lastBlow=0;
+      function analyse(){
+        analyser.getByteFrequencyData(data);
+        const avg=data.reduce((s,v)=>s+v,0)/data.length;
+        if(avg>80 && Date.now()-lastBlow>1500){
+          lastBlow=Date.now();
+          blowAll();
+        }
+        requestAnimationFrame(analyse);
+      }
+      analyse();
+    })
+    .catch(e=>{console.log('Mic denied or error',e)});
+}
+</script>
+</body>
+</html>
